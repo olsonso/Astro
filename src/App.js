@@ -8,8 +8,7 @@ import _ from 'lodash';
 import AstroList from './components/AstroList';
 import AstroDetail from './components/AstroDetails';
 import Horoscopes from "./components/Horoscopes";
-
-const logo = "http://astrologyreadings.online/online_calcs/img/astrology_854_300px1.png";
+import GitHub from './components/GitHub';
 
 const AppWrapper = styled.div`
   text-align: center;
@@ -17,7 +16,7 @@ const AppWrapper = styled.div`
 `;
 
 const AppHeader = styled.div`
-  height: 10rem;
+  height: 11rem;
   padding: 1rem;
   color: ${props => props.theme.dark};
   background-color: ${props => props.theme.primary};
@@ -27,25 +26,6 @@ const AppTitle = styled.h1`
   font-weight: 400;
 `;
 
-const rotate360 = keyframes`
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
-`;
-
-const AppLogo = styled.img`
-  animation: ${rotate360} infinite 10s linear;
-  height: 150px;
-  margin-left: auto;
-  margin-right: auto;
-  &:hover {
-    animation: ${rotate360} infinite 5s linear;
-  }
-  display:block;
-`;
 
 const AppIntro = styled.p`
   color: ${props => props.theme.dark};
@@ -126,6 +106,7 @@ handleErrorChange = e => {
             <AppHeader>
                 <ThemeSelect handleThemeChange={this.handleThemeChange} />
               <AppTitle>Daily Astrology</AppTitle>
+              <GitHub/>
             </AppHeader>
             <SearchBar onSearchTermChange={astroSearch} error={this.state.error} handleErrorChange={this.handleErrorChange}/>
             <AstroList onAstroSelect={selectedAstro => this.setState({selectedAstro})} astro={this.state.astro} />

@@ -36,9 +36,10 @@ const GridItem = styled.div`
     margin:10px;
     margin-left: auto;
     margin-right: auto;
+    transition: all .2s ease-in-out;
     width:200px;
     &:hover {
-        box-shadow: 1px 4px 8px 1px ${props => props.theme.primary};
+          transform: scale(1.1);
     }
 `;
 const Image = styled.img`

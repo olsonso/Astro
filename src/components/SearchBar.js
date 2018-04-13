@@ -3,13 +3,14 @@ import styled from "styled-components";
 
 const Input = styled.input`
   padding: 0.5em;
-  margin: 0.5em;
+  margin: 1em;
   background: transparent;
-  border:none;
+  font-family: 'Poiret One',cursive;
   font-size: 1.2em;
+  border:none;
   width:500px;
-  border-radius: 3px;
-  border-bottom: 1px solid black;
+  border-radius: 2px;
+  border-bottom: 2px solid black;
   color: ${props => props.error ? '#f16623' : '#F29FC4'};
 `;
 
