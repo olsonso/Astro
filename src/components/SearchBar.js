@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const Input = styled.input`
   padding: 0.5em;
@@ -12,6 +13,10 @@ export const Input = styled.input`
   border-radius: 2px;
   border-bottom: 2px solid black;
   color: black;
+  ${media.lessThan("medium")`
+    /* screen width is less than 768px (medium) */
+    width:300px;
+  `}
 `;
 
 class SearchBar extends Component {

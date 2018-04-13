@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import is from 'styled-is';
+import media from "styled-media-query";
 
 const Grid = styled.div`
   display: grid;
@@ -22,7 +23,11 @@ const Grid = styled.div`
   ${is('height') `
     width: ${props => props.height};
   `};
-      margin:15px;
+  margin:15px;
+  ${media.lessThan("medium")`
+       /* screen width is less than 768px (medium) */
+       display:block;
+     `}
 `
 
 const GridItem = styled.div`
@@ -36,7 +41,6 @@ const GridItem = styled.div`
     margin-left: auto;
     margin-right: auto;
     transition: all .2s ease-in-out;
-    width:200px;
     &:hover {
           transform: scale(1.1);
     }
@@ -44,12 +48,17 @@ const GridItem = styled.div`
 const Image = styled.img`
     height:100px;
     width:100px;
+    ${media.lessThan("medium")`
+         /* screen width is less than 768px (medium) */
+         height:20px;
+         width:20px;
+       `}
 `;
 
 const Horoscopes = ({onAstroSelect}) => {
 
     return(
-      <Grid width="100%" height="auto" templateColumns="repeat(6, 1fr)" gap="5px" autoRows="minmax(100px, auto)">
+      <Grid width="auto" height="auto" templateColumns="repeat(6, 1fr)" gap="5px" autoRows="minmax(100px, auto)">
         <GridItem onClick={()=> onAstroSelect('Aries') }> <h2> Aries </h2> <Image src="http://www.freepngimg.com/download/aries/10-2-aries-png.png"/> <p>March 21-April 19</p> </GridItem>
         <GridItem onClick={()=> onAstroSelect('Taurus') }> <h2> Taurus</h2> <Image src="http://www.pngmart.com/files/5/Taurus-Transparent-PNG.png"/> <p>April 20-May 20</p></GridItem>
         <GridItem onClick={()=> onAstroSelect('Gemini') }> <h2> Gemini </h2> <Image src="https://png.icons8.com/metro/1600/gemini.png"/> <p> May 21-June 20 </p> </GridItem>

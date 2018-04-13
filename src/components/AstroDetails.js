@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import media from "styled-media-query";
 
 const Card = styled.div`
     box-shadow: 1px 4px 8px 1px ${props => props.theme.primary};
@@ -10,6 +11,10 @@ const Card = styled.div`
     height: 120px;
     width: 800px;
     transition-timing-function: ease-in;
+    ${media.lessThan("medium")`
+      /* screen width is less than 768px (medium) */
+      width:100%;
+    `}
 `;
 
 

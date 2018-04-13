@@ -14,16 +14,22 @@ import media from "styled-media-query";
 const AppWrapper = styled.div`
   text-align: center;
   margin:10px;
+  width:100%;
+  ${media.lessThan("medium")`
+    /* screen width is less than 768px (medium) */
+    width:100%;
+  `}
 `;
 
 const AppHeader = styled.div`
-  height: 11rem;
+  height: 12rem;
+  width:100%;
   padding: 1rem;
   color: ${props => props.theme.dark};
   background-color: ${props => props.theme.primary};
   ${media.lessThan("medium")`
     /* screen width is less than 768px (medium) */
-    width:700px;
+    width:320px;
   `}
 `;
 
@@ -95,7 +101,7 @@ handleErrorChange = e => {
               <SearchBar onSearchTermChange={astroSearch} handleErrorChange={this.handleErrorChange}/>
               <AstroList onAstroSelect={selectedAstro => this.setState({selectedAstro})} astro={this.state.astro} />
               <AstroDetail  astro={this.state.selectedAstro} term={this.state.term}/>
-            < Horoscopes onAstroSelect={astroSearch}/>
+                <Horoscopes onAstroSelect={astroSearch}/>
           </AppWrapper>
         </ThemeProvider>
       );

@@ -1,13 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import media from "styled-media-query";
 
 const Select = styled.select`
-  margin: 0rem 0.5rem;
+  margin: 0rem 2.5rem;
   padding: 0rem 0.5rem;
   font-size: 1rem;
   background: transparent;
   border-radius: 2px;
   float:right;
+  ${media.lessThan("medium")`
+    /* screen width is less than 768px (medium) */
+    float:none;
+  `}
 `
 
 export const SelectOpt = styled.option`

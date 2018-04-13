@@ -1,4 +1,5 @@
 import { injectGlobal } from 'styled-components';
+import media from "styled-media-query";
 
 export const theme1 = {
   primary: '#ffffcc',
@@ -34,6 +35,11 @@ injectGlobal`
       font-size:3rem;
       color:black;
       letter-spacing: .5rem;
+
+      ${media.lessThan("medium")`
+        /* screen width is less than 768px (medium) */
+          font-size:2rem;
+      `}
   }
 
   h2 {
