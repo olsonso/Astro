@@ -101,6 +101,7 @@ validateTerm(term){
 
 handleErrorChange = e => {
   let input = e.toLowerCase();
+  console.log("here", e);
   let checker = ["gemini", "aries", "virgo", "pisces", "aquarius", "libra", "sagittarius", "cancer", "scorpio", "taurus", "capricorn"];
   if (checker.some(function(v) { return input === v; })) {
      this.astroSearch(input);
@@ -117,7 +118,7 @@ handleErrorChange = e => {
 };
   render() {
     //call only couple seconds
-		const astroSearch = _.debounce((term)=>{this.astroSearch(term) }, 1000);
+		const astroSearch = _.debounce((term)=>{this.handleErrorChange(term) }, 1000);
 
     return (
         <ThemeProvider theme={this.state.theme}>
