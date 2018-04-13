@@ -29,7 +29,7 @@ const AppHeader = styled.div`
   background-color: ${props => props.theme.primary};
   ${media.lessThan("medium")`
     /* screen width is less than 768px (medium) */
-    width:320px;
+    width:365px;
   `}
 `;
 
