@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import styled from "styled-components";
 import is from 'styled-is';
-
 
 const Grid = styled.div`
   display: grid;
@@ -58,8 +57,8 @@ const Horoscopes = ({onAstroSelect}) => {
         <GridItem onClick={()=> onAstroSelect('Leo') }> <h2> Leo </h2> <Image src="https://png.icons8.com/metro/1600/leo.png"/> <p> July 23-August 22 </p> </GridItem>
         <GridItem onClick={()=> onAstroSelect('Virgo') }> <h2> Virgo </h2> <Image src="http://www.pngmart.com/files/5/Virgo-PNG-Free-Download.png"/> <p> August 23-September 22 </p> </GridItem>
         <GridItem onClick={()=> onAstroSelect('Libra') }> <h2> Libra </h2> <Image src="http://www.pngall.com/wp-content/uploads/2016/05/Libra-Free-Download-PNG-180x180.png"/> <p> September 23-October 22 </p> </GridItem>
-        <GridItem onClick={()=> onAstroSelect('Scorpio') }> <h2> Scorpio </h2> <Image src="https://cdn.pixabay.com/photo/2016/03/31/15/24/astrology-1293256_960_720.png"/> <p> October 23-November 21 </p> </GridItem>
-        <GridItem onClick={()=> onAstroSelect('Sagitarrius') }> <h2> Sagitarrius </h2> <Image src="https://cdn.pixabay.com/photo/2012/04/18/01/14/sagittarius-36395_960_720.png"/> <p> November 22-December 21 </p> </GridItem>
+        <GridItem onClick={()=> onAstroSelect('Scorpio') }> <h2> Scorpio </h2> <Image src="http://cdn.pixabay.com/photo/2016/03/31/15/24/astrology-1293256_960_720.png"/> <p> October 23-November 21 </p> </GridItem>
+        <GridItem onClick={()=> onAstroSelect('Sagitarrius') }> <h2> Sagitarrius </h2> <Image src="http://cdn.pixabay.com/photo/2012/04/18/01/14/sagittarius-36395_960_720.png"/> <p> November 22-December 21 </p> </GridItem>
         <GridItem onClick={()=> onAstroSelect('Capricorn') }> <h2> Capricorn </h2> <Image src="http://www.pngall.com/wp-content/uploads/2016/05/Capricorn-PNG-Clipart-180x180.png"/> <p> December 22-January 19 </p> </GridItem>
         <GridItem onClick={()=> onAstroSelect('Aquarius') }> <h2> Aquarius </h2> <Image src="http://mystars.xyz/wp-content/uploads/2017/04/aquarius-357x240.png"/> <p> January 20 to February 18 </p> </GridItem>
         <GridItem onClick={()=> onAstroSelect('Pisces') }> <h2> Pisces </h2> <Image src="http://pngimages.net/sites/default/files/pisces-horoscope-sign-png-image-100976.png"/> <p> February 19 to March 20 </p> </GridItem>

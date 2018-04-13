@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import styled from "styled-components";
 
-const Input = styled.input`
+export const Input = styled.input`
   padding: 0.5em;
   margin: 1em;
   background: transparent;
@@ -11,9 +11,8 @@ const Input = styled.input`
   width:500px;
   border-radius: 2px;
   border-bottom: 2px solid black;
-  color: ${props => props.error ? '#f16623' : '#F29FC4'};
+  color: black;
 `;
-
 
 class SearchBar extends Component {
 	constructor(props){

@@ -8,9 +8,6 @@ const Select = styled.select`
   background: transparent;
   border-radius: 2px;
   float:right;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
 `
 
 export const SelectOpt = styled.option`
@@ -22,8 +19,8 @@ class ThemeSelect extends React.Component {
   render() {
     return (
         <Select onChange={e => this.props.handleThemeChange(e)}>
-          <SelectOpt value="theme1">Day</SelectOpt>
-          <SelectOpt value="theme2">Night</SelectOpt>
+          <SelectOpt value="theme1">Feelin Happy</SelectOpt>
+          <SelectOpt value="theme2">Feeling Blue</SelectOpt>
         </Select>
 
     )
