@@ -6,14 +6,14 @@ const Input = styled.input`
   margin: 0.5em;
   color: ${props => props.theme.primary};
   background: transparent;
-  border: none;
+  border:none;
   font-size: 1.2em;
   width:500px;
   border-radius: 3px;
   border-bottom: 1px solid black;
+
 `;
 class SearchBar extends Component {
-
 	constructor(props){
 		super(props);
 		this.state = {term: ''};
@@ -21,7 +21,7 @@ class SearchBar extends Component {
 
 	render() {
 		return (
-			<Input placeholder="Enter a sign (aries, gemini, virgo)"
+			<Input placeholder="Enter a sign or click an icon below"
 			value = {this.state.term}
 			onChange={event => this.onInputChange(event.target.value)} />
 	);
@@ -30,6 +30,7 @@ class SearchBar extends Component {
 onInputChange(term){
 	this.setState({term});
 	this.props.onSearchTermChange(term);
+  this.props.handleErrorChange(term);
 	}
 }
 

@@ -7,12 +7,6 @@ const Gallery = styled.div`
   flex-wrap: wrap;
 `;
 
-const Tab = styled.div`
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-`;
-
 const AstroList = (props) => {
 
 var result = Object.keys(props.astro.data).map(function(key) {

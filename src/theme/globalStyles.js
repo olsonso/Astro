@@ -16,6 +16,11 @@ export const theme2 = {
   dark: '#222'
 }
 
+export const error ={
+  primary:'#222',
+  danger: '#f16623',
+}
+
 injectGlobal`
 
   @import url('https://fonts.googleapis.com/css?family=Monoton');

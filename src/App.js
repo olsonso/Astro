@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import styled, { keyframes, ThemeProvider } from "styled-components";
-import { theme1, theme2, Button } from "./theme/globalStyles";
+import { theme1, theme2, error } from "./theme/globalStyles";
 import ThemeSelect from "./components/ThemeSelect";
 import SearchBar from "./components/SearchBar";
 import axios from 'axios';
 import _ from 'lodash';
 import AstroList from './components/AstroList';
 import AstroDetail from './components/AstroDetails';
+import Horoscopes from "./components/Horoscopes";
 
 const logo = "http://astrologyreadings.online/online_calcs/img/astrology_854_300px1.png";
 
@@ -24,26 +25,6 @@ const AppHeader = styled.div`
 
 const AppTitle = styled.h1`
   font-weight: 400;
-`;
-
-const twinkles = keyframes`
-from {background-position:0 0;}
-to {background-position:-10000px 5000px;}
-`;
-
-const Star = styled.div`
-background-color: black;
-  z-index:0;
-  width:100%;
-  height:100%;
-  display:block;
-`;
-const Twinkle = styled.div`
-background:"(http://www.script-tutorials.com/demos/360/images/twinkling.png";
-  z-index:1;
-  width:100%;
-  height:100%;
-  display:block;
 `;
 
 const rotate360 = keyframes`
@@ -77,9 +58,28 @@ class App extends Component {
 
 		this.state = {
 			theme: theme1,
+      error: '#FFFF',
       astro:{"data": ''},
-      selectedAstro:null
+      selectedAstro:null,
+      term:'Gemini'
 		 };
+
+     this.astroSearch(this.state.term);
+}
+
+validateTerm(term){
+  let checker = ["Gemini", "gemini", "aries", "Aries", "virgo", "Virgo"];
+  if (checker.some(function(v) { return term === v; })) {
+   return true;
+ }
+
+  else{
+    console.log("invalid");
+    this.setState({
+      error:"red"
+    })
+    return false;
+  }
 }
 
   astroSearch(term){
@@ -90,14 +90,25 @@ class App extends Component {
      .then((res)=>{
        this.setState({
          astro:res,
-         selectedAstro:''
+         selectedAstro:'',
+         term: term
        });
      })
     .catch((err)=>{
       console.log(err);
     })
-   }
+}
 
+handleErrorChange = e => {
+  let input = e.toLowerCase();
+  let checker = ["gemini", "aries", "virgo", "pisces", "aquarius", "libra", "sagittarius", "cancer", "scorpio", "taurus", "capricorn"];
+  if (checker.some(function(v) { return input === v; })) {
+     this.astroSearch(input);
+ }
+ else{
+   this.setState({error: 'red'})
+ }
+};
 
   handleThemeChange = e => {
   let theme = e.target.value;
@@ -115,10 +126,10 @@ class App extends Component {
                 <ThemeSelect handleThemeChange={this.handleThemeChange} />
               <AppTitle>Daily Astrology</AppTitle>
             </AppHeader>
-            <SearchBar onSearchTermChange={astroSearch}/>
+            <SearchBar onSearchTermChange={astroSearch} error={this.state.error} handleErrorChange={this.handleErrorChange}/>
             <AstroList onAstroSelect={selectedAstro => this.setState({selectedAstro})} astro={this.state.astro} />
-            <AstroDetail  astro={this.state.selectedAstro}/>
-            <AppLogo src={logo} alt="logo" />
+            <AstroDetail  astro={this.state.selectedAstro} term={this.state.term}/>
+              <Horoscopes onAstroSelect={astroSearch}/>
           </AppWrapper>
         </ThemeProvider>
       );

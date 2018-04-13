@@ -13,9 +13,9 @@ const Card = styled.div`
 
 
 
-const AstroDetail = ({astro}) =>{
+const AstroDetail = ({astro, term}) => {
   if(!astro){
-    return <Card> <h2> </h2></Card>;
+    return <Card> <h2> Current Search: {term}</h2></Card>;
   }
   return (
     <Card><h3>
