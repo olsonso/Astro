@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import styled, { ThemeProvider } from "styled-components";
-import { theme1, theme2 } from "./theme/globalStyles";
-import ThemeSelect from "./components/ThemeSelect";
-import SearchBar from "./components/SearchBar";
-import axios from 'axios';
-import _ from 'lodash';
 import AstroList from './components/AstroList';
 import AstroDetail from './components/AstroDetails';
 import Horoscopes from "./components/Horoscopes";
 import GitHub from './components/GitHub';
+import ThemeSelect from "./components/ThemeSelect";
+import SearchBar from "./components/SearchBar";
+import styled, { ThemeProvider } from "styled-components";
+import { theme1, theme2 } from "./theme/globalStyles";
+import axios from 'axios';
+import _ from 'lodash';
+import media from "styled-media-query";
 
 const AppWrapper = styled.div`
   text-align: center;
@@ -20,6 +21,10 @@ const AppHeader = styled.div`
   padding: 1rem;
   color: ${props => props.theme.dark};
   background-color: ${props => props.theme.primary};
+  ${media.lessThan("medium")`
+    /* screen width is less than 768px (medium) */
+    width:700px;
+  `}
 `;
 
 const AppTitle = styled.h1`
