@@ -25,6 +25,8 @@ injectGlobal`
 
   @import url('https://fonts.googleapis.com/css?family=Monoton');
   @import url('https://fonts.googleapis.com/css?family=Poiret+One');
+  @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
 
   body {
     padding: 0;
@@ -37,6 +39,15 @@ injectGlobal`
       font-size:3rem;
       color:black;
       letter-spacing: .5rem;
+  }
+
+  h2 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 16px;
+  }
+
+  h3 {
+    font-family: 'Permanent Marker', cursive;
   }
 `
 

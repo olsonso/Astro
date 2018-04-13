@@ -17,7 +17,7 @@ const AppWrapper = styled.div`
 `;
 
 const AppHeader = styled.div`
-  height: 7rem;
+  height: 10rem;
   padding: 1rem;
   color: ${props => props.theme.dark};
   background-color: ${props => props.theme.primary};

@@ -2,7 +2,7 @@ import React from 'react';
 import AstroListItem from './AstroListItem';
 import styled from "styled-components";
 
-const Gallery = styled.div`
+const Tabs = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
@@ -10,7 +10,7 @@ const Gallery = styled.div`
 const AstroList = (props) => {
 
 var result = Object.keys(props.astro.data).map(function(key) {
-return [key.toUpperCase(), (props.astro.data[key])];
+return [key.replace(/_/g, " ").toUpperCase(), (props.astro.data[key])];
 });
 
 
@@ -25,9 +25,9 @@ const astroItems = result.map((astro) =>{
 
 	return (
 
-    <Gallery>
+    <Tabs>
       {astroItems}
-    </Gallery>
+    </Tabs>
 	);
 };
 
