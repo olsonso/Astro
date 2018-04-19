@@ -29,7 +29,8 @@ class SearchBar extends Component {
 		return (
 			<Input placeholder="Enter a sign or click an icon below"
 			value = {this.state.term}
-			onChange={event => this.onInputChange(event.target.value)} />
+			onChange={event => this.onInputChange(event.target.value)}
+      style={{color:`${this.props.active ? 'red':'black'}`}} />
 	);
 }
 

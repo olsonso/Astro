@@ -45,7 +45,8 @@ class App extends Component {
 			theme: theme1,
       astro:{"data": ''},
       selectedAstro:null,
-      term:'Gemini'
+      term:'Gemini',
+      active: true
 		 };
 
      this.astroSearch(this.state.term);
@@ -78,7 +79,15 @@ handleErrorChange = e => {
   let checker = ["gemini", "aries", "virgo", "leo", "pisces", "aquarius", "libra", "sagittarius", "cancer", "scorpio", "taurus", "capricorn"];
   if (checker.some(function(v) { return input === v; })) {
      this.astroSearch(input);
+     this.setState({
+       active:false
+     })
    }
+  else(
+       this.setState({
+         active:true
+       })
+     )
 };
 
   handleThemeChange = e => {
@@ -98,7 +107,7 @@ handleErrorChange = e => {
               <AppTitle>Daily Astrology</AppTitle>
               <GitHub/>
             </AppHeader>
-              <SearchBar onSearchTermChange={astroSearch} handleErrorChange={this.handleErrorChange}/>
+              <SearchBar onSearchTermChange={astroSearch} handleErrorChange={this.handleErrorChange} active={this.state.active}/>
               <AstroList onAstroSelect={selectedAstro => this.setState({selectedAstro})} astro={this.state.astro} />
               <AstroDetail  astro={this.state.selectedAstro} term={this.state.term}/>
                 <Horoscopes onAstroSelect={astroSearch}/>
